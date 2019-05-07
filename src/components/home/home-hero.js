@@ -6,19 +6,8 @@ import Row from '../grid/row';
 import Column from '../grid/column';
 import Button from '../button/button';
 import SolarSystem from '../solar-system/solar-system';
-import {MAIN_SECTION_ID} from '../../utils/constants';
+import scrollToMain from '../../utils/scroll-to-main';
 import s from './home-hero.module.css';
-
-// Scroll to the main content of the page
-const handleCtaClick = () => {
-  const mainSection = document.querySelector(`#${MAIN_SECTION_ID}`);
-
-  if (mainSection) {
-    mainSection.scrollIntoView({
-      behavior: 'smooth'
-    });
-  }
-};
 
 // @TODO Make onClick on CTA work
 const HomeHero = ({cta, subtitle, title}) => {
@@ -47,7 +36,7 @@ const HomeHero = ({cta, subtitle, title}) => {
                   </p>
                 </div>
                 <div className={s.content__cta}>
-                  <Button icon="arrow-down" onClick={handleCtaClick}>
+                  <Button icon="arrow-down" onClick={scrollToMain}>
                     {cta}
                   </Button>
                 </div>
