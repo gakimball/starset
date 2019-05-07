@@ -55,6 +55,6 @@
 body {
   font-family: var(--type-family), 'Helvetica', 'Arial', sans-serif;
   font-size: var(--type-size-1);
-  background: var(--theme-background);
+  background: var(--theme-background) url('../../assets/images/background.png') top left repeat;
   color: var(--theme-foreground);
 }
