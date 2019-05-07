@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import Layout from '../layout/layout';
 
-const ProjectLayout = ({children, pageContext}) => (
+const ProjectTemplate = ({children, pageContext}) => (
   <Layout>
     <Helmet title={pageContext.frontmatter.title}/>
     <h1>{pageContext.frontmatter.title}</h1>
@@ -14,11 +14,11 @@ const ProjectLayout = ({children, pageContext}) => (
   </Layout>
 );
 
-ProjectLayout.propTypes = {
+ProjectTemplate.propTypes = {
   children: PropTypes.node.isRequired,
   pageContext: PropTypes.shape({
     frontmatter: PropTypes.object.isRequired
   }).isRequired
 };
 
-export default ProjectLayout;
+export default ProjectTemplate;
