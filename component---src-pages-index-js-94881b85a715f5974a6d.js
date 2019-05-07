@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{141:function(e,n,t){"use strict";t.r(n);var a=t(0),r=t.n(a),i=t(4),l=t.n(i),u=t(143),c=t.n(u),o=function(e){var n=e.children;return r.a.createElement(r.a.Fragment,null,r.a.createElement(c.a,{titleTemplate:"Starset Sound / %s",defaultTitle:"Starset Sound"}),n)};o.propTypes={children:l.a.node.isRequired};var s=o;t(149),n.default=function(){return r.a.createElement(s,null,"Hi I'm website")}}}]);
+//# sourceMappingURL=component---src-pages-index-js-94881b85a715f5974a6d.js.map
