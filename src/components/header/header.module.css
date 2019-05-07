@@ -1,0 +1,16 @@
+.container {
+  border-bottom: 1px solid var(--theme-foreground);
+  height: var(--layout-header-height);
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1; /* Places the header on top of the solar system */
+}
+
+.logo {
+  font-family: var(--type-family-logo), Helvetica, sans-serif;
+  font-size: var(--type-size-3);
+  font-weight: normal;
+}

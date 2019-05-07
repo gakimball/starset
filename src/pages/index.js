@@ -1,20 +1,33 @@
 import React from 'react';
 import Layout from '../components/layout/layout';
-import Container from '../components/container/container';
+import Header from '../components/header/header';
 import HomeHero from '../components/home/home-hero';
-import SolarSystem from '../components/solar-system/solar-system';
-import Row from '../components/grid/row';
-import Column from '../components/grid/column';
+import Container from '../components/container/container';
+import {MAIN_SECTION_ID} from '../utils/constants';
 
 export default () => (
   <Layout>
-    <Container>
-      <HomeHero/>
-      <SolarSystem/>
-      <Row>
-        <Column width={6}>Left</Column>
-        <Column width={6}>Right</Column>
-      </Row>
-    </Container>
+    <Header/>
+    <HomeHero
+      title="Sound design for the *future*."
+      subtitle="We make beautiful sounds for commercial and interactive projects."
+      cta="Explore projects"
+    />
+    <div id={MAIN_SECTION_ID}>
+      <Container>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptatum, officiis. Quis temporibus accusantium dolores perferendis, sint tempora et vero? Debitis repudiandae odio illum ullam, atque ea quae nulla maiores.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptatum, officiis. Quis temporibus accusantium dolores perferendis, sint tempora et vero? Debitis repudiandae odio illum ullam, atque ea quae nulla maiores.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptatum, officiis. Quis temporibus accusantium dolores perferendis, sint tempora et vero? Debitis repudiandae odio illum ullam, atque ea quae nulla maiores.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptatum, officiis. Quis temporibus accusantium dolores perferendis, sint tempora et vero? Debitis repudiandae odio illum ullam, atque ea quae nulla maiores.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptatum, officiis. Quis temporibus accusantium dolores perferendis, sint tempora et vero? Debitis repudiandae odio illum ullam, atque ea quae nulla maiores.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptatum, officiis. Quis temporibus accusantium dolores perferendis, sint tempora et vero? Debitis repudiandae odio illum ullam, atque ea quae nulla maiores.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptatum, officiis. Quis temporibus accusantium dolores perferendis, sint tempora et vero? Debitis repudiandae odio illum ullam, atque ea quae nulla maiores.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptatum, officiis. Quis temporibus accusantium dolores perferendis, sint tempora et vero? Debitis repudiandae odio illum ullam, atque ea quae nulla maiores.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptatum, officiis. Quis temporibus accusantium dolores perferendis, sint tempora et vero? Debitis repudiandae odio illum ullam, atque ea quae nulla maiores.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptatum, officiis. Quis temporibus accusantium dolores perferendis, sint tempora et vero? Debitis repudiandae odio illum ullam, atque ea quae nulla maiores.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptatum, officiis. Quis temporibus accusantium dolores perferendis, sint tempora et vero? Debitis repudiandae odio illum ullam, atque ea quae nulla maiores.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptatum, officiis. Quis temporibus accusantium dolores perferendis, sint tempora et vero? Debitis repudiandae odio illum ullam, atque ea quae nulla maiores.</p>
+      </Container>
+    </div>
   </Layout>
 );

@@ -22,6 +22,7 @@
 
   /* Typography */
   --type-family: 'Manrope';
+  --type-family-logo: 'Lovelo';
   --type-size-1: 14px;
   --type-size-2: 16px;
   --type-size-3: 27px;
@@ -31,6 +32,7 @@
   --layout-max-width: 940px;
   --layout-gutter: 15px;
   --layout-column-count: 12;
+  --layout-header-height: 100px;
 }
 
 @media (min-width: 1024px) {
@@ -43,18 +45,25 @@
 }
 
 @font-face {
-  font-family: var(--type-family);
+  font-family: 'Manrope';
   src: url('../../assets/fonts/manrope-light.woff2') format('woff2'),
        url('../../assets/fonts/manrope-light.woff') format('woff'),
        url('../../assets/fonts/manrope-light.otf') format('truetype');
 }
 
 @font-face {
-  font-family: var(--type-family);
+  font-family: 'Manrope';
   font-weight: bold;
   src: url('../../assets/fonts/manrope-bold.woff2') format('woff2'),
        url('../../assets/fonts/manrope-bold.woff') format('woff'),
        url('../../assets/fonts/manrope-bold.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Lovelo';
+  src: url('../../assets/fonts/lovelo.woff2') format('woff2'),
+       url('../../assets/fonts/lovelo.woff') format('woff'),
+       url('../../assets/fonts/lovelo.otf') format('truetype');
 }
 
 body {
@@ -62,6 +71,7 @@ body {
   font-size: var(--type-size-1);
   background: var(--theme-background) url('../../assets/images/background.png') top left repeat;
   color: var(--theme-foreground);
+  overflow-x: hidden;
 }
 
 *,
@@ -70,5 +80,19 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1;
-  font-size: var(--font-size-1);
+  font-size: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: inherit;
+}
+
+button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  outline: none;
+  color: inherit;
 }

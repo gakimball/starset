@@ -1,11 +1,76 @@
-import React from 'react';
+import React, {useMemo} from 'react';
+import PropTypes from 'prop-types';
+import reactStringReplace from 'react-string-replace';
+import Container from '../container/container';
+import Row from '../grid/row';
+import Column from '../grid/column';
+import Button from '../button/button';
+import SolarSystem from '../solar-system/solar-system';
+import {MAIN_SECTION_ID} from '../../utils/constants';
 import s from './home-hero.module.css';
 
-const HomeHero = () => (
-  <>
-    <h1 className={s.title}>Sound design for the future.</h1>
-    <p className={s.subtitle}>We make beautiful sounds for commercial and interactive projects. _</p>
-  </>
-);
+// Scroll to the main content of the page
+const handleCtaClick = () => {
+  const mainSection = document.querySelector(`#${MAIN_SECTION_ID}`);
+
+  if (mainSection) {
+    mainSection.scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
+};
+
+// @TODO Make onClick on CTA work
+const HomeHero = ({cta, subtitle, title}) => {
+  // This function replaces `*text*` with `<b>text</b>`, which adds the fancy highlight effect
+  const titleNode = useMemo(() => {
+    return reactStringReplace(title, /(\*.+\*)/, match => (
+      <b key={match} className={s.title__bold}>
+        {match.replace(/\*/g, '')}
+      </b>
+    ));
+  }, [title]);
+
+  return (
+    <div className={s.background}>
+      <Container>
+        <div className={s.container}>
+          <Row>
+            <Column width={6}>
+              <div className={s.content}>
+                <div className={s.content__titles}>
+                  <h1 className={s.title}>
+                    {titleNode}
+                  </h1>
+                  <p className={s.subtitle}>
+                    {subtitle}
+                  </p>
+                </div>
+                <div className={s.content__cta}>
+                  <Button icon="arrow-down" onClick={handleCtaClick}>
+                    {cta}
+                  </Button>
+                </div>
+              </div>
+            </Column>
+            <Column width={6}>
+              <div className={s.solarSystem}>
+                <div className={s.solarSystem__inner}>
+                  <SolarSystem/>
+                </div>
+              </div>
+            </Column>
+          </Row>
+        </div>
+      </Container>
+    </div>
+  );
+};
+
+HomeHero.propTypes = {
+  cta: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
+};
 
 export default HomeHero;

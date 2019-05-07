@@ -1,0 +1,27 @@
+.button {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  font-size: var(--type-size-2);
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 250ms linear;
+}
+
+.button:hover {
+  color: var(--theme-primary);
+}
+
+.icon {
+  margin-right: 18px;
+}
+
+.icon,
+.text {
+  transition: transform 750ms ease;
+}
+
+.button:hover .text {
+  transform: translateX(10px);
+}
