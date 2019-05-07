@@ -1,0 +1,9 @@
+.title {
+  font-size: var(--type-size-4);
+  color: var(--theme-background);
+  text-shadow: var(--theme-outline);
+}
+
+.subtitle {
+  font-size: var(--type-size-2);
+}

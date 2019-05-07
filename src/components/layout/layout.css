@@ -14,6 +14,11 @@
   --theme-foreground: var(--color-white);
   --theme-primary: var(--color-blue);
   --theme-error: var(--color-pink);
+  --theme-outline:
+     -1px -1px 0 var(--theme-foreground),
+      1px -1px 0 var(--theme-foreground),
+      -1px 1px 0 var(--theme-foreground),
+       1px 1px 0 var(--theme-foreground): 
 
   /* Typography */
   --type-family: 'Manrope';
@@ -57,4 +62,13 @@ body {
   font-size: var(--type-size-1);
   background: var(--theme-background) url('../../assets/images/background.png') top left repeat;
   color: var(--theme-foreground);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-size: var(--font-size-1);
 }
