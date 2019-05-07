@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 import Layout from '../layout/layout';
 
 const ProjectLayout = ({children, pageContext}) => (
   <Layout>
+    <Helmet title={pageContext.frontmatter.title}/>
     <h1>{pageContext.frontmatter.title}</h1>
     <p>{pageContext.frontmatter.client}</p>
     <p><strong>When:</strong> {pageContext.frontmatter.year}</p>
