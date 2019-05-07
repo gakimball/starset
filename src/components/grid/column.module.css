@@ -1,0 +1,11 @@
+.column {
+  padding-left: var(--layout-gutter);
+  padding-right: var(--layout-gutter);
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .column {
+    width: calc((var(--width) / var(--layout-column-count)) * 100%);
+  }
+}

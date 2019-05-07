@@ -1,0 +1,57 @@
+:root {
+  /* Colors */
+  --color-black: #222;
+  --color-white: #fff;
+  --color-blue: #00CECB;
+  --color-yellow: #D7CD52;
+  --color-pink: #FF9B9B;
+
+  /* Theme */
+  --theme-background: var(--color-black);
+  --theme-foreground: var(--color-white);
+  --theme-primary: var(--color-blue);
+  --theme-error: var(--color-pink);
+
+  /* Typography */
+  --type-family: 'Manrope';
+  --type-size-1: 14px;
+  --type-size-2: 16px;
+  --type-size-3: 27px;
+  --type-size-4: 35px;
+
+  /* Layout */
+  --layout-max-width: 940px;
+  --layout-gutter: 15px;
+  --layout-column-count: 12;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --type-size-1: 16px;
+    --type-size-2: 24px;
+    --type-size-3: 36px;
+    --type-size-4: 54px;
+  }
+}
+
+@font-face {
+  font-family: var(--type-family);
+  src: url('../../assets/fonts/manrope-light.woff2') format('woff2'),
+       url('../../assets/fonts/manrope-light.woff') format('woff'),
+       url('../../assets/fonts/manrope-light.otf') format('truetype');
+}
+
+@font-face {
+  font-family: var(--type-family);
+  font-weight: bold;
+  src: url('../../assets/fonts/manrope-bold.woff2') format('woff2'),
+       url('../../assets/fonts/manrope-bold.woff') format('woff'),
+       url('../../assets/fonts/manrope-bold.otf') format('truetype');
+}
+
+body {
+  font-family: var(--type-family), 'Helvetica', 'Arial', sans-serif;
+  font-size: var(--type-size-1);
+  background: var(--theme-background);
+  color: var(--theme-foreground);
+}

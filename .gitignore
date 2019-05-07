@@ -85,3 +85,6 @@ typings/
 
 # Gatsby build output
 public
+
+# macOS Spotlight files
+.DS_Store
