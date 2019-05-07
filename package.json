@@ -1,0 +1,28 @@
+{
+  "name": "starset",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Front-end code for starsetsound.com",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "start": "gatsby develop",
+    "test": "xo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gakimball/starset.git"
+  },
+  "author": "Drew Siner <hello@starsetsound.com> (http://starsetsound.com/)",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/gakimball/starset/issues"
+  },
+  "homepage": "https://github.com/gakimball/starset#readme",
+  "devDependencies": {
+    "gatsby": "^2.4.2",
+    "gh-pages": "^2.0.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
