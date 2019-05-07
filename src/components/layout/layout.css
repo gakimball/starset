@@ -18,7 +18,7 @@
      -1px -1px 0 var(--theme-foreground),
       1px -1px 0 var(--theme-foreground),
       -1px 1px 0 var(--theme-foreground),
-       1px 1px 0 var(--theme-foreground): 
+       1px 1px 0 var(--theme-foreground);
 
   /* Typography */
   --type-family: 'Manrope';
