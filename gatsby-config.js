@@ -1,4 +1,6 @@
 module.exports = {
   pathPrefix: '/starset',
-  plugins: []
+  plugins: [
+    'gatsby-plugin-react-helmet'
+  ]
 };
