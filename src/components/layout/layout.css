@@ -1,9 +1,12 @@
 :root {
   /* Colors */
   --color-black: #222;
+  --color-gray: #4A4A4A;
   --color-white: #fff;
   --color-blue: #00CECB;
+  --color-blue-rgb: 0, 207, 204;
   --color-yellow: #D7CD52;
+  --color-yellow-rgb: 215, 205, 82;
   --color-pink: #FF9B9B;
 
   /* Theme */
