@@ -1,3 +1,5 @@
+/* eslint-disable react/button-has-type */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import ArrowSvg from '../../assets/images/arrow.svg';
@@ -8,13 +10,14 @@ const icons = {
 };
 const empty = () => null;
 
-const Button = ({children, icon, onClick}) => {
+const Button = ({children, disabled, icon, onClick, type}) => {
   const Icon = icons[icon] || empty;
 
   return (
     <button
       className={s.button}
-      type="button"
+      type={type}
+      disabled={disabled}
       onClick={onClick}
     >
       <Icon className={s.icon}/>
@@ -27,14 +30,18 @@ const Button = ({children, icon, onClick}) => {
 
 Button.propTypes = {
   children: PropTypes.string,
+  disabled: PropTypes.bool,
   icon: PropTypes.oneOf(['arrow-down']),
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  type: PropTypes.oneOf(['button', 'submit'])
 };
 
 Button.defaultProps = {
   children: '',
+  disabled: false,
   icon: null,
-  onClick: () => {}
+  onClick: () => {},
+  type: 'button'
 };
 
 export default Button;

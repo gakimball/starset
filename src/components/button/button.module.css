@@ -1,8 +1,13 @@
 .button {
+  --color: inherit;
+  --opacity: 1;
+
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
 
+  opacity: var(--opacity);
+  color: var(--color);
   font-size: var(--type-size-2);
   font-weight: bold;
   cursor: pointer;
@@ -10,7 +15,11 @@
 }
 
 .button:hover {
-  color: var(--theme-primary);
+  --color: var(--theme-primary);
+}
+
+.button[disabled] {
+  --opacity: 0.5;
 }
 
 .icon {
