@@ -1,5 +1,6 @@
 import React from 'react';
 import {StaticQuery, graphql, Link} from 'gatsby';
+import Container from '../container/container';
 
 const query = graphql`
   query ProjectGallery {
@@ -25,7 +26,7 @@ const query = graphql`
 `;
 
 const ProjectGallery = () => (
-  <>
+  <Container>
     <StaticQuery query={query}>
       {data => data.allSitePage.edges.map(edge => (
         <Link key={edge.node.id} to={edge.node.path}>
@@ -34,7 +35,7 @@ const ProjectGallery = () => (
         </Link>
       ))}
     </StaticQuery>
-  </>
+  </Container>
 );
 
 export default ProjectGallery;
