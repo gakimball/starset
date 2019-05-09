@@ -1,0 +1,87 @@
+.hero {
+  --background: var(--background-small);
+  --x: 0;
+  --y: 0;
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+
+  position: relative;
+  overflow: hidden;
+
+  height: 100vh;
+}
+
+@media (min-width: 1024px) {
+  .background {
+    --background: var(--background-large);
+  }
+}
+
+.background {
+  position: absolute;
+  top: var(--shift);
+  right: var(--shift);
+  bottom: var(--shift);
+  left: var(--shift);
+
+  background-image: var(--background);
+  background-size: cover;
+  transform: translate(var(--x), var(--y));
+}
+
+.container {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+
+  position: relative;
+
+  flex: 1;
+}
+
+.text {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: center;
+
+  height: 100%;
+}
+
+.eyebrow,
+.project,
+.client {
+  display: inline-block;
+  background: var(--theme-background);
+}
+
+.project,
+.client {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.eyebrow {
+  font-weight: bold;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.eyebrow::after {
+  content: ' /';
+}
+
+.title {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+
+  font-size: var(--type-size-4);
+}
+
+.client {
+  color: var(--theme-background);
+  text-shadow: var(--theme-outline);
+}

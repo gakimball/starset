@@ -14,7 +14,7 @@ module.exports = {
       resolve: 'gatsby-mdx',
       options: {
         defaultLayouts: {
-          default: require.resolve('./src/components/project-template/project-template')
+          default: require.resolve('./src/components/project/project-template')
         }
       }
     }

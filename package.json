@@ -39,6 +39,7 @@
     "react-helmet": "^5.2.1",
     "react-jeff": "^1.2.0",
     "react-string-replace": "^0.4.4",
+    "scale-value": "^1.0.0",
     "xo": "^0.24.0"
   },
   "xo": {
