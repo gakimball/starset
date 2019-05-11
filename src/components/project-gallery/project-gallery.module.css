@@ -21,25 +21,3 @@
     padding-top: 90px;
   }
 }
-
-.tile {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: var(--align-items);
-  margin-bottom: 85px;
-}
-
-.thumbnail {
-  width: 120%;
-  margin-bottom: 35px;
-}
-
-.projectTitle,
-.projectClient {
-  font-size: var(--type-size-2);
-}
-
-.projectTitle {
-  font-weight: bold;
-  margin-bottom: 15px;
-}

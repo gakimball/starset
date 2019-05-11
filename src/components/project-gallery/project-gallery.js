@@ -2,10 +2,11 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import {StaticQuery, graphql, Link} from 'gatsby';
+import {StaticQuery, graphql} from 'gatsby';
 import Container from '../container/container';
 import Row from '../grid/row';
 import Column from '../grid/column';
+import ProjectTile from '../project-tile/project-tile';
 import s from './project-gallery.module.css';
 
 const requireProjectImage = require.context('../../assets/images/projects', true, /^.*\.jpg$/);
@@ -54,15 +55,14 @@ const ProjectGallery = ({title}) => (
             <Column key={index} width={6}>
               <div className={s[`column${index + 1}`]}>
                 {projects.map(project => (
-                  <Link key={project.id} to={project.path} className={s.tile}>
-                    <img
-                      className={s.thumbnail}
-                      src={requireProjectImage(project.context.frontmatter.largeImage)}
-                      alt=""
-                    />
-                    <p className={s.projectTitle}>{project.context.frontmatter.title}</p>
-                    <p className={s.projectClient}>{project.context.frontmatter.client}</p>
-                  </Link>
+                  <ProjectTile
+                    key={project.id}
+                    path={project.path}
+                    title={project.context.frontmatter.title}
+                    client={project.context.frontmatter.client}
+                    image={requireProjectImage(project.context.frontmatter.largeImage)}
+                    reverse={index === 1}
+                  />
                 ))}
               </div>
             </Column>

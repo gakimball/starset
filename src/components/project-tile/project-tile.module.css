@@ -1,0 +1,30 @@
+.container {
+  --align-items: flex-end;
+  --color: inherit;
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: var(--align-items);
+  margin-bottom: 85px;
+  font-size: var(--type-size-2);
+  color: var(--color);
+  transition: color 250ms linear;
+}
+
+.container.reverse {
+  --align-items: flex-start;
+}
+
+.container:hover {
+  --color: var(--theme-primary);
+}
+
+.thumbnail {
+  width: 120%;
+  margin-bottom: 35px;
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
