@@ -8,7 +8,7 @@ export default () => (
   <Layout>
     <Header/>
     <HomeHero
-      title="Sound design for the *future*."
+      title="Sound design for the *future* /"
       subtitle="We make beautiful sounds for commercial and interactive projects."
       cta="Explore projects"
     />

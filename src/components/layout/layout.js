@@ -14,7 +14,28 @@ const Layout = ({children}) => (
     <Helmet
       titleTemplate="Starset Sound / %s"
       defaultTitle="Starset Sound"
-    />
+    >
+      <link rel="icon" sizes="16x16" href={require('../../assets/images/favicon-16.png')}/>
+      <link rel="icon" sizes="32x32" href={require('../../assets/images/favicon-32.png')}/>
+      <link rel="icon" sizes="64x64" href={require('../../assets/images/favicon-64.png')}/>
+
+      <meta property="og:url" content="https://starsetsound.com"/>
+      <meta property="og:type" content="website"/>
+      <meta property="og:image" content={require('../../assets/images/share.png')}/>
+      <meta property="og:description" content="We make beautiful sounds for commercial and interactive projects."/>
+      <meta property="og:site_name" content="Starser Sound"/>
+      <meta property="og:locale" content="en_US"/>
+
+      <meta name="twitter:card" content="summary"/>
+      <meta name="twitter:url" content="https://starsetsound.com"/>
+      <meta name="twitter:title" content="Starset Sound"/>
+      <meta name="twitter:description" content="We make beautiful sounds for commercial and interactive projects."/>
+      <meta name="twitter:image" content={require('../../assets/images/share.png')}/>
+
+      <meta itemProp="name" content="Starset Sound"/>
+      <meta itemProp="description" content="We make beautiful sounds for commercial and interactive projects."/>
+      <meta itemProp="image" content="https://starsetsound.com"/>
+    </Helmet>
     {children}
     <ProjectGallery/>
     <ContactForm
