@@ -5,7 +5,6 @@ import Container from '../container/container';
 import Row from '../grid/row';
 import Column from '../grid/column';
 import Button from '../button/button';
-import SolarSystem from '../solar-system/solar-system';
 import scrollToMain from '../../utils/scroll-to-main';
 import s from './home-hero.module.css';
 
@@ -39,13 +38,6 @@ const HomeHero = ({cta, subtitle, title}) => {
                   <Button icon="arrow-down" onClick={scrollToMain}>
                     {cta}
                   </Button>
-                </div>
-              </div>
-            </Column>
-            <Column width={6}>
-              <div className={s.solarSystem}>
-                <div className={s.solarSystem__inner}>
-                  <SolarSystem/>
                 </div>
               </div>
             </Column>

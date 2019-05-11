@@ -1,4 +1,5 @@
 .row {
+  width: 100%;
   display: flex;
   flex-flow: row wrap;
   align-items: var(--align);

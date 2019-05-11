@@ -5,6 +5,7 @@
 
 .container {
   height: calc(100vh - var(--layout-header-height));
+  min-height: 500px;
   display: flex;
   flex-flow: row nowrap;
   align-items: stretch;
@@ -57,17 +58,4 @@
 .subtitle {
   font-size: var(--type-size-2);
   line-height: 1.66;
-}
-
-.solarSystem {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.solarSystem__inner {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
 }
