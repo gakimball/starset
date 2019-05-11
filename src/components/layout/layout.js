@@ -9,7 +9,7 @@ import Footer from '../footer/footer';
 import 'modern-normalize/modern-normalize.css';
 import './layout.css';
 
-const Layout = ({children}) => (
+const Layout = ({children, projectGalleryTitle}) => (
   <>
     <Helmet
       titleTemplate="Starset Sound / %s"
@@ -37,7 +37,9 @@ const Layout = ({children}) => (
       <meta itemProp="image" content="https://starsetsound.com"/>
     </Helmet>
     {children}
-    <ProjectGallery/>
+    <ProjectGallery
+      title={projectGalleryTitle || 'Selected Projects'}
+    />
     <ContactForm
       text="Starset Sound was founded by Andrew Siner and is based in Los Angeles. We would love to hear about your project. Use this form or send us an email and we will get back to you as soon as possible!"
     />
@@ -46,7 +48,12 @@ const Layout = ({children}) => (
 );
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  projectGalleryTitle: PropTypes.string
+};
+
+Layout.defaultProps = {
+  projectGalleryTitle: null
 };
 
 export default Layout;

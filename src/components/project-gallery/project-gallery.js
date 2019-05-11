@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import {StaticQuery, graphql, Link} from 'gatsby';
 import Container from '../container/container';
 import Row from '../grid/row';
@@ -33,9 +34,9 @@ const query = graphql`
   }
 `;
 
-const ProjectGallery = () => (
+const ProjectGallery = ({title}) => (
   <Container>
-    <h2 className={s.title}>Selected Projects</h2>
+    <h2 className={s.title}>{title}</h2>
     {console.log(s)}
 
     <Row>
@@ -72,5 +73,9 @@ const ProjectGallery = () => (
     </Row>
   </Container>
 );
+
+ProjectGallery.propTypes = {
+  title: PropTypes.string.isRequired
+};
 
 export default ProjectGallery;

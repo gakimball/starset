@@ -4,8 +4,6 @@ import Helmet from 'react-helmet';
 import {MDXProvider} from '@mdx-js/react';
 import Layout from '../layout/layout';
 import Container from '../container/container';
-import Row from '../grid/row';
-import Column from '../grid/column';
 import ProjectHero from './project-hero';
 import ProjectImage from './project-image';
 import ProjectVideo from './project-video';
@@ -22,7 +20,7 @@ const ProjectTemplate = ({children, pageContext}) => {
   const project = pageContext.frontmatter;
 
   return (
-    <Layout>
+    <Layout projectGalleryTitle="More Projects">
       <Helmet title={project.title}/>
       <ProjectHero
         project={project.title}
@@ -31,22 +29,20 @@ const ProjectTemplate = ({children, pageContext}) => {
         smallImage={requireProjectImage(project.smallImage)}
       />
       <Container>
-        <div className={s.main}>
-          <Row>
-            <Column width={8}>
-              <h2 className={s.intro}>{project.intro}</h2>
-              <div className={s.meta}>
-                <span className={s.meta__item}><strong>When:</strong> {project.year}</span>
-                <span className={s.meta__item}><strong>What:</strong> {project.work}</span>
-              </div>
-              <div className={s.body}>
-                <MDXProvider components={components => ({...components, ...customComponents})}>
-                  {children}
-                </MDXProvider>
-              </div>
-            </Column>
-          </Row>
-        </div>
+        <article className={s.main}>
+          <div className={s.main__inner}>
+            <h2 className={s.intro}>{project.intro}</h2>
+            <div className={s.meta}>
+              <span className={s.meta__item}><strong>When /</strong> {project.year}</span>
+              <span className={s.meta__item}><strong>What /</strong> {project.work}</span>
+            </div>
+            <div className={s.body}>
+              <MDXProvider components={components => ({...components, ...customComponents})}>
+                {children}
+              </MDXProvider>
+            </div>
+          </div>
+        </article>
       </Container>
     </Layout>
   );

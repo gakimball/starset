@@ -1,5 +1,10 @@
 .main {
   padding-top: 6%;
+  padding-bottom: 20%;
+}
+
+.main__inner {
+  max-width: 600px;
 }
 
 .intro {
@@ -22,7 +27,8 @@
   font-size: var(--type-size-2);
 }
 
-.body p {
+.body > p {
+  margin-top: 7%;
   line-height: 1.5;
 }
 

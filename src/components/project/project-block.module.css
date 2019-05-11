@@ -1,0 +1,37 @@
+.container {
+  margin-top: 7%;
+}
+
+.content {
+  position: relative;
+  width: var(--layout-max-width);
+  max-width: calc(100vw - (var(--layout-gutter) * 4));
+  margin-bottom: 22px;
+}
+
+.kind {
+  --color: var(--theme-foreground);
+
+  position: absolute;
+  right: calc(100% + 50px);
+  bottom: 0;
+  font-size: var(--type-size-4);
+  font-weight: bold;
+  text-transform: uppercase;
+  opacity: 0.1;
+  color: var(--theme-background);
+  text-shadow:
+    -1px -1px 0 var(--color),
+     1px -1px 0 var(--color),
+     -1px 1px 0 var(--color),
+      1px 1px 0 var(--color);
+  transform: rotate(-90deg) translateX(100%);
+  transform-origin: bottom right;
+  pointer-events: none;
+}
+
+.caption {
+  font-size: var(--type-size-1);
+  line-height: 1.5;
+  max-width: 380px;
+}
