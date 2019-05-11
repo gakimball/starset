@@ -37,7 +37,6 @@ const query = graphql`
 const ProjectGallery = ({title}) => (
   <Container>
     <h2 className={s.title}>{title}</h2>
-    {console.log(s)}
 
     <Row>
       <StaticQuery query={query}>
