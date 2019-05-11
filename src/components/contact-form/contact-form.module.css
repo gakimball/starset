@@ -1,0 +1,9 @@
+.title {
+  margin-bottom: 1.3em;
+  font-size: var(--type-size-3);
+}
+
+.title::after {
+  content: ' /';
+  color: var(--theme-primary);
+}

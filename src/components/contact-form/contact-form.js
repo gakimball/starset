@@ -6,6 +6,7 @@ import Column from '../grid/column';
 import TextField from '../text-field/text-field';
 import Button from '../button/button';
 import useContactForm, {FormStatus} from '../../utils/use-contact-form';
+import s from './contact-form.module.css';
 
 const ContactForm = ({text}) => {
   const {
@@ -17,6 +18,7 @@ const ContactForm = ({text}) => {
 
   return (
     <Container>
+      <h2 className={s.title}>Contact</h2>
       <Row>
         <Column width={5}>
           <TextField

@@ -11,7 +11,7 @@ import ProjectImage from './project-image';
 import ProjectVideo from './project-video';
 import s from './project-template.module.css';
 
-const requireProjectFile = require.context('../../assets/images/projects', true, /^.*\.jpg$/);
+const requireProjectImage = require.context('../../assets/images/projects', true, /^.*\.jpg$/);
 
 const customComponents = {
   Image: ProjectImage,
@@ -27,8 +27,8 @@ const ProjectTemplate = ({children, pageContext}) => {
       <ProjectHero
         project={project.title}
         client={project.client}
-        largeImage={requireProjectFile(project.largeImage)}
-        smallImage={requireProjectFile(project.smallImage)}
+        largeImage={requireProjectImage(project.largeImage)}
+        smallImage={requireProjectImage(project.smallImage)}
       />
       <Container>
         <div className={s.main}>
