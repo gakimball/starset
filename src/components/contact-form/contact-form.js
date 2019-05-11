@@ -1,35 +1,22 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import {useField, useForm} from 'react-jeff';
+import memoize from 'lodash/memoize';
 import Container from '../container/container';
 import Row from '../grid/row';
 import Column from '../grid/column';
 import TextField from '../text-field/text-field';
 import Button from '../button/button';
-
-// eslint-disable-next-line camelcase
-const PLACEHOLDER_waitThen = time => new Promise(resolve => setTimeout(resolve, time));
-
-const required = value => {
-  if (value.trim() === '') {
-    return ['Please fill in this field'];
-  }
-
-  return [];
-};
+import useContactForm, {FormStatus} from '../../utils/use-contact-form';
 
 const ContactForm = ({text}) => {
-  const handleSubmit = async () => {
-    // eslint-disable-next-line new-cap
-    await PLACEHOLDER_waitThen(1000);
-  };
+  const {
+    status,
+    fields,
+    updateField,
+    submitForm
+  } = useContactForm();
 
-  const name = useField({defaultValue: '', validations: [required]});
-  const email = useField({defaultValue: '', validations: [required]});
-  const message = useField({defaultValue: '', validations: [required]});
-  const form = useForm({fields: [name, email, message], onSubmit: handleSubmit});
-
-  const handleSubmitButtonClick = useCallback(() => {}, []);
+  const handleFormChange = memoize(key => value => updateField(key, value));
 
   return (
     <Container>
@@ -39,28 +26,31 @@ const ContactForm = ({text}) => {
             name="name"
             label="Name/Company"
             placeholder="William Riker"
-            errors={name.errors}
-            {...name.props}
+            value={fields.name.value}
+            error={fields.name.error}
+            onChange={handleFormChange('name')}
           />
           <TextField
             name="email"
             label="Email Address"
             type="email"
             placeholder="number.one@starfleet.co"
-            errors={email.errors}
-            {...email.props}
+            value={fields.email.value}
+            error={fields.email.error}
+            onChange={handleFormChange('email')}
           />
           <TextField
             multiline
             name="message"
-            label="Project Description"
+            label="Message"
             placeholder="Describe your project"
-            errors={message.errors}
-            {...message.props}
+            value={fields.message.value}
+            error={fields.message.error}
+            onChange={handleFormChange('message')}
           />
           <Button
-            disabled={form.validating || form.submitting}
-            onClick={handleSubmitButtonClick}
+            disabled={status === FormStatus.Sending}
+            onClick={submitForm}
           >
             Submit
           </Button>

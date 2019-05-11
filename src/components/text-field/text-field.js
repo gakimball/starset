@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import cls from 'classnames';
 import s from './text-field.module.css';
 
-const TextField = ({disabled, errors, label, name, onChange, placeholder, required, type, value}) => {
+const TextField = ({disabled, error, label, name, onChange, placeholder, required, type, value}) => {
   const handleChange = useCallback(event => onChange(event.target.value), [onChange]);
-  const hasErrors = errors.length > 0;
   const errorBlockId = `${name}-errors`;
+  const hasError = error !== null;
 
   return (
-    <div className={cls(s.container, {[s.hasErrors]: hasErrors})}>
+    <div className={cls(s.container, {[s.hasError]: hasError})}>
       <label
         className={s.label}
         htmlFor={name}
@@ -23,17 +23,15 @@ const TextField = ({disabled, errors, label, name, onChange, placeholder, requir
         value={value}
         placeholder={placeholder}
         required={required}
-        aria-describedby={hasErrors ? errorBlockId : undefined}
+        aria-required={String(required)}
+        aria-describedby={hasError ? errorBlockId : undefined}
+        aria-invalid={String(hasError)}
         onChange={handleChange}
       />
-      {hasErrors && (
-        <div id={errorBlockId}>
-          {errors.map(error => (
-            <p key={error} className={s.error}>
-              {error}
-            </p>
-          ))}
-        </div>
+      {hasError && (
+        <p key={error} id={errorBlockId} className={s.error}>
+          {error}
+        </p>
       )}
     </div>
   );
@@ -41,7 +39,7 @@ const TextField = ({disabled, errors, label, name, onChange, placeholder, requir
 
 TextField.propTypes = {
   disabled: PropTypes.bool,
-  errors: PropTypes.arrayOf(PropTypes.string),
+  error: PropTypes.string,
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
@@ -53,7 +51,7 @@ TextField.propTypes = {
 
 TextField.defaultProps = {
   disabled: false,
-  errors: [],
+  error: null,
   onChange: () => {},
   placeholder: undefined,
   required: false,
