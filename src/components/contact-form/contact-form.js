@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import memoize from 'lodash/memoize';
 import Container from '../container/container';
 import Row from '../grid/row';
 import Column from '../grid/column';
@@ -16,8 +15,6 @@ const ContactForm = ({text}) => {
     submitForm
   } = useContactForm();
 
-  const handleFormChange = memoize(key => value => updateField(key, value));
-
   return (
     <Container>
       <Row>
@@ -28,7 +25,7 @@ const ContactForm = ({text}) => {
             placeholder="William Riker"
             value={fields.name.value}
             error={fields.name.error}
-            onChange={handleFormChange('name')}
+            onChange={value => updateField('name', value)}
           />
           <TextField
             name="email"
@@ -37,7 +34,7 @@ const ContactForm = ({text}) => {
             placeholder="number.one@starfleet.co"
             value={fields.email.value}
             error={fields.email.error}
-            onChange={handleFormChange('email')}
+            onChange={value => updateField('email', value)}
           />
           <TextField
             multiline
@@ -46,7 +43,7 @@ const ContactForm = ({text}) => {
             placeholder="Describe your project"
             value={fields.message.value}
             error={fields.message.error}
-            onChange={handleFormChange('message')}
+            onChange={value => updateField('message', value)}
           />
           <Button
             disabled={status === FormStatus.Sending}
