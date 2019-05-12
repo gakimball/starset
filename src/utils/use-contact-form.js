@@ -23,20 +23,6 @@ const defaultFieldValues = {
   }
 };
 
-const runValidations = fields => mapValues(fields, field => {
-  if (field.value.trim() === '') {
-    return {
-      value: field.value,
-      error: 'Please fill in this field.'
-    };
-  }
-
-  return {
-    value: field.value,
-    error: null
-  };
-});
-
 export default () => {
   const [fields, setFields] = useState(defaultFieldValues);
   const [status, setStatus] = useState(FormStatus.Default);
@@ -52,7 +38,10 @@ export default () => {
   }, []);
 
   const submitForm = useCallback(async () => {
-    const nextFieldState = runValidations(fields);
+    const nextFieldState = mapValues(fields, field => ({
+      value: field.value,
+      error: field.value.trim() === '' ? 'Please fill in this field.' : null
+    }));
     const hasErrors = Object.values(nextFieldState).some(field => field.error !== null);
 
     setFields(nextFieldState);
