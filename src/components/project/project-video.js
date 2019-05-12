@@ -12,6 +12,7 @@ const ProjectVideo = ({caption, id, length, title}) => (
           allowFullScreen
           className={s.iframe}
           src={`https://player.vimeo.com/video/${id}?color=00CECB&title=0&byline=0&portrait=0`}
+          title={title}
           frameBorder="0"
           allow="autoplay; fullscreen"
         />
