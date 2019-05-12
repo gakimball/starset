@@ -28,7 +28,7 @@
 
 .icon,
 .text {
-  transition: transform 750ms ease;
+  transition: transform 500ms ease;
 }
 
 .button:hover .text {

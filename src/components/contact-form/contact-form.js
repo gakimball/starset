@@ -52,6 +52,7 @@ const ContactForm = ({email, instagram, phone, text}) => {
             onChange={value => updateField('message', value)}
           />
           <Button
+            icon="arrow-right"
             disabled={status === FormStatus.Sending}
             onClick={submitForm}
           >

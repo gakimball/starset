@@ -2,11 +2,13 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import ArrowSvg from '../../assets/images/arrow.svg';
+import ArrowDownIcon from '../../assets/images/arrow-down.svg';
+import ArrowRightIcon from '../../assets/images/arrow-right.svg';
 import s from './button.module.css';
 
 const icons = {
-  'arrow-down': ArrowSvg
+  'arrow-down': ArrowDownIcon,
+  'arrow-right': ArrowRightIcon
 };
 const empty = () => null;
 
@@ -31,7 +33,7 @@ const Button = ({children, disabled, icon, onClick, type}) => {
 Button.propTypes = {
   children: PropTypes.string,
   disabled: PropTypes.bool,
-  icon: PropTypes.oneOf(['arrow-down']),
+  icon: PropTypes.oneOf(Object.keys(icons)),
   onClick: PropTypes.func,
   type: PropTypes.oneOf(['button', 'submit'])
 };
