@@ -24,7 +24,12 @@ const HomeHero = ({cta, subtitle, title}) => {
       <Container>
         <div className={s.container}>
           <Row>
-            <Column width={6}>
+            <Column
+              rules={{
+                medium: 8,
+                large: 6
+              }}
+            >
               <div className={s.content}>
                 <div className={s.content__titles}>
                   <h1 className={s.title}>

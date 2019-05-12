@@ -54,7 +54,12 @@ const ProjectGallery = ({title}) => (
             ];
 
             return splitProjects.map((projects, index) => (
-              <Column key={index} width={6}>
+              <Column
+                key={index}
+                rules={{
+                  medium: 6
+                }}
+              >
                 <div
                   className={cls({
                     [s.secondColumn]: index === 1

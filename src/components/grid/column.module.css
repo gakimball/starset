@@ -1,11 +1,32 @@
 .column {
+  --width-small: 12;
+  --margin-small: 0;
+
+  --width-medium: var(--width-small);
+  --margin-medium: var(--margin-small);
+
+  --width-large: var(--width-medium);
+  --margin-large: var(--margin-medium);
+
+  --width: var(--width-small);
+  --margin: var(--margin-small);
+
   padding-left: var(--layout-gutter);
   padding-right: var(--layout-gutter);
-  width: 100%;
+  width: calc((var(--width) / var(--layout-column-count)) * 100%);
+  margin-right: calc((var(--margin) / var(--layout-column-count)) * 100%);
+}
+
+@media (min-width: 640px) {
+  .column {
+    --width: var(--width-medium);
+    --margin: var(--margin-medium);
+  }
 }
 
 @media (min-width: 1024px) {
   .column {
-    width: calc((var(--width) / var(--layout-column-count)) * 100%);
+    --width: var(--width-large);
+    --margin: var(--margin-large);
   }
 }

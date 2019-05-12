@@ -24,7 +24,15 @@ const ContactForm = ({email, instagram, phone, text}) => {
     <Container>
       <h2 className={s.title}>Contact</h2>
       <Row>
-        <Column width={5}>
+        <Column
+          rules={{
+            medium: 6,
+            large: {
+              width: 5,
+              margin: 1
+            }
+          }}
+        >
           <TextField
             name="name"
             label="Name/Company"
@@ -59,7 +67,12 @@ const ContactForm = ({email, instagram, phone, text}) => {
             Submit
           </Button>
         </Column>
-        <Column width={5}>
+        <Column
+          rules={{
+            medium: 6,
+            large: 5
+          }}
+        >
           <p className={s.text}>
             {text}
           </p>

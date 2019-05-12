@@ -1,25 +1,63 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
+import isObject from 'is-object';
 import s from './column.module.css';
 
-const Column = ({children, width}) => (
-  <div
-    className={s.column}
-    style={{
-      '--width': width
-    }}
-  >
-    {children}
-  </div>
-);
+const Column = ({children, rules}) => {
+  const style = useMemo(() => {
+    // eslint-disable-next-line no-use-extend-native/no-use-extend-native
+    return Object.fromEntries(
+      Object.entries(rules).flatMap(([size, rule]) => {
+        const width = `--width-${size}`;
+        const margin = `--margin-${size}`;
+
+        if (typeof rule === 'number') {
+          return [
+            [width, rule],
+            [margin, 0]
+          ];
+        }
+
+        if (isObject(rule)) {
+          return [
+            [width, rule.width],
+            [margin, rule.margin]
+          ];
+        }
+
+        return [
+          [width, 12],
+          [margin, 0]
+        ];
+      })
+    );
+  }, [rules]);
+
+  return (
+    <div
+      className={s.column}
+      style={style}
+    >
+      {children}
+    </div>
+  );
+};
 
 Column.propTypes = {
   children: PropTypes.node.isRequired,
-  width: PropTypes.number
+  rules: PropTypes.objectOf(
+    PropTypes.oneOf(
+      PropTypes.number,
+      PropTypes.shape({
+        width: PropTypes.number.isRequired,
+        margin: PropTypes.number.isRequired
+      })
+    )
+  )
 };
 
 Column.defaultProps = {
-  width: 0
+  rules: {}
 };
 
 export default Column;

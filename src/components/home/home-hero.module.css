@@ -1,6 +1,7 @@
 .background {
   width: 100%;
   background: var(--theme-background) url('../../assets/images/background-hero.png') left top repeat;
+  margin-bottom: 200px;
 }
 
 .container {
