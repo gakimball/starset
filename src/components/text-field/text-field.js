@@ -3,20 +3,21 @@ import PropTypes from 'prop-types';
 import cls from 'classnames';
 import s from './text-field.module.css';
 
-const TextField = ({disabled, error, label, name, onChange, placeholder, required, type, value}) => {
+const TextField = ({disabled, error, label, multiline, name, onChange, placeholder, required, type, value}) => {
   const handleChange = useCallback(event => onChange(event.target.value), [onChange]);
   const errorBlockId = `${name}-errors`;
   const hasError = error !== null;
+  const InputElement = multiline ? 'textarea' : 'input';
 
   return (
-    <div className={cls(s.container, {[s.hasError]: hasError})}>
+    <div className={cls(s.container, {[s.hasError]: hasError, [s.multiline]: multiline})}>
       <label
         className={s.label}
         htmlFor={name}
       >
         {label}
       </label>
-      <input
+      <InputElement
         className={s.input}
         type={type}
         disabled={disabled}
@@ -41,6 +42,7 @@ TextField.propTypes = {
   disabled: PropTypes.bool,
   error: PropTypes.string,
   label: PropTypes.string.isRequired,
+  multiline: PropTypes.bool,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   placeholder: PropTypes.string,
@@ -52,6 +54,7 @@ TextField.propTypes = {
 TextField.defaultProps = {
   disabled: false,
   error: null,
+  multiline: false,
   onChange: () => {},
   placeholder: undefined,
   required: false,
