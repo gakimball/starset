@@ -1,4 +1,5 @@
 import {useCallback, useState} from 'react';
+import mapValues from './map-values';
 
 export const FormStatus = {
   Default: 'Default',
@@ -22,22 +23,19 @@ const defaultFieldValues = {
   }
 };
 
-const runValidations = fields => {
-  const entries = Object.entries(fields).map(([fieldName, field]) => {
-    if (field.value.trim() === '') {
-      return [fieldName, {
-        value: field.value,
-        error: 'Please fill in this field.'
-      }];
-    }
+const runValidations = fields => mapValues(fields, field => {
+  if (field.value.trim() === '') {
+    return {
+      value: field.value,
+      error: 'Please fill in this field.'
+    };
+  }
 
-    return [fieldName, field];
-  });
-
-  // Object.fromEntries is a real function, strong and also my friend
-  // eslint-disable-next-line no-use-extend-native/no-use-extend-native
-  return Object.fromEntries(entries);
-};
+  return {
+    value: field.value,
+    error: null
+  };
+});
 
 export default () => {
   const [fields, setFields] = useState(defaultFieldValues);

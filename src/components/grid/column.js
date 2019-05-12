@@ -1,12 +1,12 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import isObject from 'is-object';
+import fromEntries from '../../utils/from-entries';
 import s from './column.module.css';
 
 const Column = ({children, rules}) => {
   const style = useMemo(() => {
-    // eslint-disable-next-line no-use-extend-native/no-use-extend-native
-    return Object.fromEntries(
+    return fromEntries(
       Object.entries(rules).flatMap(([size, rule]) => {
         const width = `--width-${size}`;
         const margin = `--margin-${size}`;
