@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {StaticQuery, graphql} from 'gatsby';
+import cls from 'classnames';
 import Container from '../container/container';
 import Row from '../grid/row';
 import Column from '../grid/column';
@@ -39,37 +40,43 @@ const ProjectGallery = ({title}) => (
   <Container>
     <h2 className={s.title}>{title}</h2>
 
-    <Row>
-      <StaticQuery query={query}>
-        {data => {
-          const PLACEHOLDER_theOneProject = data.allSitePage.edges[0].node;
-          const PLACEHOLDER_projects = (new Array(5)).fill(PLACEHOLDER_theOneProject);
+    <div className={s.gallery}>
+      <Row>
+        <StaticQuery query={query}>
+          {data => {
+            const PLACEHOLDER_theOneProject = data.allSitePage.edges[0].node;
+            const PLACEHOLDER_projects = (new Array(5)).fill(PLACEHOLDER_theOneProject);
 
-          const halfwayIndex = Math.ceil(PLACEHOLDER_projects.length / 2);
-          const splitProjects = [
-            PLACEHOLDER_projects.slice(0, halfwayIndex),
-            PLACEHOLDER_projects.slice(halfwayIndex)
-          ];
+            const halfwayIndex = Math.ceil(PLACEHOLDER_projects.length / 2);
+            const splitProjects = [
+              PLACEHOLDER_projects.slice(0, halfwayIndex),
+              PLACEHOLDER_projects.slice(halfwayIndex)
+            ];
 
-          return splitProjects.map((projects, index) => (
-            <Column key={index} width={6}>
-              <div className={s[`column${index + 1}`]}>
-                {projects.map(project => (
-                  <ProjectTile
-                    key={project.id}
-                    path={project.path}
-                    title={project.context.frontmatter.title}
-                    client={project.context.frontmatter.client}
-                    image={requireProjectImage(project.context.frontmatter.largeImage)}
-                    reverse={index === 1}
-                  />
-                ))}
-              </div>
-            </Column>
-          ));
-        }}
-      </StaticQuery>
-    </Row>
+            return splitProjects.map((projects, index) => (
+              <Column key={index} width={6}>
+                <div
+                  className={cls({
+                    [s.secondColumn]: index === 1
+                  })}
+                >
+                  {projects.map(project => (
+                    <ProjectTile
+                      key={project.id}
+                      path={project.path}
+                      title={project.context.frontmatter.title}
+                      client={project.context.frontmatter.client}
+                      image={requireProjectImage(project.context.frontmatter.largeImage)}
+                      reverse={index === 1}
+                    />
+                  ))}
+                </div>
+              </Column>
+            ));
+          }}
+        </StaticQuery>
+      </Row>
+    </div>
   </Container>
 );
 

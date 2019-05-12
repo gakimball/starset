@@ -5,10 +5,13 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: var(--align-items);
-  margin-bottom: 85px;
   font-size: var(--type-size-2);
   color: var(--color);
   transition: color 250ms linear;
+}
+
+.container:not(:last-child) {
+  margin-bottom: 85px;
 }
 
 .container.reverse {

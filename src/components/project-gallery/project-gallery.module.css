@@ -8,16 +8,12 @@
   color: var(--theme-primary);
 }
 
-.column1 {
-  --align-items: flex-end;
-}
-
-.column2 {
-  --align-items: flex-start;
+.gallery {
+  margin-bottom: 20%;
 }
 
 @media (min-width: 1024px) {
-  .column2 {
+  .secondColumn {
     padding-top: 90px;
   }
 }
