@@ -6,9 +6,16 @@ import s from './project-tile.module.css';
 
 const ProjectTile = ({client, image, path, reverse, title}) => (
   <Link className={cls(s.container, {[s.reverse]: reverse})} to={path}>
-    <img className={s.thumbnail} src={image} alt=""/>
+    <div className={s.thumbnail}>
+      <div className={s.prompt} aria-hidden="true">
+        <p className={s.prompt__text}>
+          View Project
+        </p>
+      </div>
+      <img className={s.image} src={image} alt=""/>
+    </div>
     <p className={s.title}>{title}</p>
-    <p>{client}</p>
+    <p className={s.client}>{client}</p>
   </Link>
 );
 
