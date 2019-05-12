@@ -59,13 +59,15 @@ const ContactForm = ({email, instagram, phone, text}) => {
             error={fields.message.error}
             onChange={value => updateField('message', value)}
           />
-          <Button
-            icon="arrow-right"
-            disabled={status === FormStatus.Sending}
-            onClick={submitForm}
-          >
-            Submit
-          </Button>
+          <div className={s.submitForm}>
+            <Button
+              icon="arrow-right"
+              disabled={status === FormStatus.Sending}
+              onClick={submitForm}
+            >
+              Submit
+            </Button>
+          </div>
         </Column>
         <Column
           rules={{
