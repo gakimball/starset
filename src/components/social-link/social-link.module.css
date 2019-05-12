@@ -1,0 +1,26 @@
+.container {
+  --color: inherit;
+  --cursor: default;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 22px;
+  color: var(--color);
+  font-weight: bold;
+  cursor: var(--cursor);
+  transition: color 250ms linear;
+}
+
+a.container:hover {
+  --color: var(--theme-primary);
+  --cursor: pointer;
+}
+
+.icon {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}

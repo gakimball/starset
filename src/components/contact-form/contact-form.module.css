@@ -7,3 +7,12 @@
   content: ' /';
   color: var(--theme-primary);
 }
+
+.text {
+  margin-bottom: 70px;
+  line-height: 2;
+}
+
+.socialLink:not(:last-child) {
+  margin-bottom: 26px;
+}

@@ -42,6 +42,9 @@ const Layout = ({children, projectGalleryTitle}) => (
     />
     <ContactForm
       text="Starset Sound was founded by Andrew Siner and is based in Los Angeles. We would love to hear about your project. Use this form or send us an email and we will get back to you as soon as possible!"
+      email="hello@starsetsound.com"
+      phone="317-374-0409"
+      instagram="starsetsound"
     />
     <Footer/>
   </>

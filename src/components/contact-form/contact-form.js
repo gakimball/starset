@@ -5,10 +5,14 @@ import Row from '../grid/row';
 import Column from '../grid/column';
 import TextField from '../text-field/text-field';
 import Button from '../button/button';
+import SocialLink from '../social-link/social-link';
 import useContactForm, {FormStatus} from '../../utils/use-contact-form';
+import MailIcon from '../../assets/images/mail.svg';
+import PhoneIcon from '../../assets/images/phone.svg';
+import InstagramIcon from '../../assets/images/instagram.svg';
 import s from './contact-form.module.css';
 
-const ContactForm = ({text}) => {
+const ContactForm = ({email, instagram, phone, text}) => {
   const {
     status,
     fields,
@@ -55,7 +59,24 @@ const ContactForm = ({text}) => {
           </Button>
         </Column>
         <Column width={5}>
-          <p>{text}</p>
+          <p className={s.text}>
+            {text}
+          </p>
+          <div className={s.socialLink}>
+            <SocialLink icon={MailIcon} link={`mailto:${email}`}>
+              {email}
+            </SocialLink>
+          </div>
+          <div className={s.socialLink}>
+            <SocialLink icon={PhoneIcon} link={`tel:${phone}`}>
+              {phone}
+            </SocialLink>
+          </div>
+          <div className={s.socialLink}>
+            <SocialLink icon={InstagramIcon} link={`https://instagram.com/${instagram}`}>
+              {instagram}
+            </SocialLink>
+          </div>
         </Column>
       </Row>
     </Container>
@@ -63,6 +84,9 @@ const ContactForm = ({text}) => {
 };
 
 ContactForm.propTypes = {
+  email: PropTypes.string.isRequired,
+  instagram: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired
 };
 
