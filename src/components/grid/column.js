@@ -46,13 +46,13 @@ const Column = ({children, rules}) => {
 Column.propTypes = {
   children: PropTypes.node.isRequired,
   rules: PropTypes.objectOf(
-    PropTypes.oneOf(
+    PropTypes.oneOf([
       PropTypes.number,
       PropTypes.shape({
         width: PropTypes.number.isRequired,
         margin: PropTypes.number.isRequired
       })
-    )
+    ])
   )
 };
 
